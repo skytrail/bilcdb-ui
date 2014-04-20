@@ -2,13 +2,11 @@
 
 /* Controllers */
 
-angular.module('myApp.controllers', [])
-  .controller('MyCtrl1', [function() {
+var controllers = angular.module('myApp.controllers', [])
 
-  }])
-  .controller('MyCtrl2', [function() {
-
-  }])
-  .controller('MyCtrl3', [function() {
-
-  }]);
+controllers.controller("OpenIdCtrl", function($scope, OpenId) {
+    $scope.authed = OpenId.authed;
+    $scope.login = function() {
+        OpenId.login();
+    };
+});
